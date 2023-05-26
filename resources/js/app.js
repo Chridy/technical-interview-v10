@@ -1,33 +1,71 @@
-// How many contracts and quotes were generated each day within the last 3 weeks. (bar)
+
+// Generate a mixed bar/line chart which clearly shows:
+// 			How many contracts and quotes were generated each day within the last 3 weeks. (bar) v/
 // 			The weekly hire value (line)
 // 			Show dates in dd/mm/YYYY format on the X axis;
 // 			Show appropriate Y Axis for each bar/line of the chart.
+// Bonus:
+// 			Calculate and show as a line, the moving average of weekly hire.
 
 
 function createCharts(rentAll) {
-	const ctx = document.getElementById("barOne");
+	const barChartX = document.getElementById("barOne");
+	const lineChartX = document.getElementById("lineOne");
 
 	var newLabels = [];
-	var newDatasets = [];
+	var newContracts = [];
+	var newQuotes = [];
+	var newHireValues = [];
 	rentAll.forEach(e => {
+		// console.log("date: "+e.gen_date+", contracts: "+e.contracts);
 		newLabels.push(e.gen_date);
-		var dataset = {
-			label: "Contracts",
-			data: [e.contracts]
-		};
-		newDatasets.push(dataset);
+		newContracts.push(e.contracts);
+		newQuotes.push(e.quotes);
+		newHireValues.push(e.weekly_value);
 	});
 
-	new Chart(ctx, {
-		type: "bar",
+	// console.log("rentAll: "+JSON.stringify(rentAll));
+	// console.log("labels: "+JSON.stringify(newLabels));
+	// console.log("contracts: "+JSON.stringify(newContracts));
+	// console.log("quotes: "+JSON.stringify(newQuotes));
+	// console.log("HireValues: "+JSON.stringify(newHireValues));
+
+	new Chart(barChartX, {
 		data: {
 			labels: newLabels,
-			datasets: newDatasets
+			datasets: [{
+				type: "bar",
+				label: "Contracts",
+				data: newContracts,
+				yAxisID: "A"
+			},
+			{
+				type: "bar",
+				label: "Quotes",
+				data: newQuotes,
+				yAxisID: "A"
+			},
+			{
+				type: "line",
+				label: "Weekly Hire Value",
+				data: newHireValues,
+				yAxisID: "B"
+			}],
 		},
 		options: {
 			scales: {
-				y: {
+				A: {
+					type: "linear",
+					position: "left",
 					beginAtZero: true
+				},
+				B: {
+					type: "linear",
+					position: "right",
+					beginAtZero: false,
+					grid: {
+						drawOnChartArea: false
+					}
 				}
 			}
 		}
