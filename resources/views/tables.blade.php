@@ -9,12 +9,12 @@
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.bunny.net">
 		<link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="../resources/css/app.css">
-		<link rel="stylesheet" href="../resources/css/datatables.min.css">
-		<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../resources/js/datatables.min.js"></script>
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/datatables.min.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/datatables.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		<script type="text/javascript" src="../resources/js/app.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
 	</head>
 
 	<body>
