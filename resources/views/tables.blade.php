@@ -24,27 +24,30 @@
 		<!-- Part 1: Generate Chart
 		Generate a mixed bar/line chart which clearly shows:
 		Required:
-			How many contracts and quotes were generated each day within the last 3 weeks. (bar)
-			The weekly hire value (line)
-			Show dates in dd/mm/YYYY format on the X axis;
-			Show appropriate Y Axis for each bar/line of the chart.
+			How many contracts and quotes were generated each day within the last 3 weeks. (bar) v/
+			The weekly hire value (line) v/
+			Show dates in dd/mm/YYYY format on the X axis; v/
+			Show appropriate Y Axis for each bar/line of the chart. v/
 
 		Bonus:
 			Calculate and show as a line, the moving average of weekly hire.
 		-->
 		<div>
 			<canvas id="barOne"></canvas>
-			<canvas id="lineOne"></canvas>
 		</div>
 		<script>
-			var rentAll = {!! json_encode($rentAll->toArray()) !!};
+			var rentAll = {!! json_encode($rentAll) !!};
 			createCharts(rentAll);
 		</script>
-		<!-- <p>{{ var_dump($startDate) }}</p> -->
-		<!-- <p>{{ $rentAll }}</p> -->
 
-
-
+		<h2>Part 2</h2>
+		<!-- Part 2: Generate tabular data
+		Required
+			Generate a table under the chart showing the same data in tabular format.
+		Bonus
+			Provide the ability to view the contracts (onrent_lines table) for each date in tabular format via a modal / popup.
+			Once finished, commit your work and push
+		-->
 
 		<table id="tableOne" class="table table-striped table-bordered table-hover">
 			<thead>
@@ -62,29 +65,6 @@
 						<td>{{ $val->contracts }}</td>
 						<td>{{ $val->quotes }}</td>
 						<td>{{ $val->weekly_value }}</td>
-					</tr>
-				@endforeach
-			</tbody>
-		</table>
-
-		<h2>Part 2</h2>
-		<!-- Part 2: Generate tabular data
-		Required
-			Generate a table under the chart showing the same data in tabular format.
-		Bonus
-			Provide the ability to view the contracts (onrent_lines table) for each date in tabular format via a modal / popup.
-			Once finished, commit your work and push
-		-->
-		<table id="tableTwo" class="table table-striped table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>test</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($rentLinesAll as $key => $val)
-					<tr>
-						<td>{{ $val }}</td>
 					</tr>
 				@endforeach
 			</tbody>

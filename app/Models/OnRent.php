@@ -18,6 +18,15 @@ class OnRent extends Model
 		'weekly_value',
 	];
 
+	protected $cast = [
+		"gen_date" => "date"
+	];
+
+	public function getFormattedDate()
+	{
+		return $this->gen_date->format('d-m-y');
+	}
+
 	public function onRentLines(): BelongsTo
 	{
 		return $this->belongsTo(OnRenntlines::class, 'header_id', 'id');
