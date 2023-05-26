@@ -26,3 +26,39 @@ h2 {
 	padding: 5px 10px;
 	border-radius: 5px;
 }
+
+.modal-outer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(155, 155, 155, 0.3);
+	pointer-events: none;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+.modal-outer.show {
+	display: flex;
+}
+
+.modal-middle {
+	width: 50%;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.modal-content {
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+.close-modal {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-color: rgb(175, 61, 61);
+	border-top-right-radius: 5px;
+}

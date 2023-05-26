@@ -59,6 +59,7 @@
 						<th>Contracts</th>
 						<th>Quotes</th>
 						<th>Weekly Hire Value</th>
+						<th>View contract</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -68,10 +69,32 @@
 							<td>{{ $val->contracts }}</td>
 							<td>{{ $val->quotes }}</td>
 							<td>{{ $val->weekly_value }}</td>
+							<td><button type="button" onclick="openModal({{ $val->id }})">View Contract</button></td>
 						</tr>
 					@endforeach
 				</tbody>
 			</table>
+
+			<div id="contractModal" class="modal-outer">
+				<div class="modal-middle">
+					<div class="modal-content">
+						<button class="close-modal" type="button" onclick="closeModal()">X</button>
+						<table id="modalTable" class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>Account</th>
+									<th>Order Number</th>
+									<th>Rental Start</th>
+									<th>Dispatch Id</th>
+									<th>Order Value</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

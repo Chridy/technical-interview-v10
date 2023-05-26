@@ -18,5 +18,6 @@ Route::controller(TableController::class)->group(function() {
 	/*Route::get('/', function () {
 		return view('tables');
 	});*/
+	Route::post("contract/", "getContracts");
 	Route::get("/", "index");
 });
