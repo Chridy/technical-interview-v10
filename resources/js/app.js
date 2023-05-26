@@ -1,6 +1,6 @@
 
 function createCharts(rentAll) {
-	const barChartX = document.getElementById("barOne");
+	const barChartX = document.getElementById("chartDisplay");
 	console.log(rentAll);
 
 	var newLabels = [];
@@ -55,8 +55,6 @@ function createCharts(rentAll) {
 		}
 	});
 }
-
-
 
 
 

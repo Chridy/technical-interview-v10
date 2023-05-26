@@ -18,7 +18,6 @@ class TableController extends Controller
 						->orderby('gen_date')
 						->get();
 
-		// $rentAll = OnRent::all();
 		$rentLinesAll = OnRentLines::all();
 
 		return view("tables", compact("test", "startDate", "rentAll", "rentLinesAll"));

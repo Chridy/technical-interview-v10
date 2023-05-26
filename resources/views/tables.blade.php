@@ -20,55 +20,58 @@
 	<body>
 		<h1>Chris Kelly Technical Test</h1>
 
-		<h2>Part 1</h2>
-		<!-- Part 1: Generate Chart
-		Generate a mixed bar/line chart which clearly shows:
-		Required:
-			How many contracts and quotes were generated each day within the last 3 weeks. (bar) v/
-			The weekly hire value (line) v/
-			Show dates in dd/mm/YYYY format on the X axis; v/
-			Show appropriate Y Axis for each bar/line of the chart. v/
+		<div id="partOne" class="partCont">
+			<h2>Part 1</h2>
+			<!-- Part 1: Generate Chart
+			Generate a mixed bar/line chart which clearly shows:
+			Required:
+				How many contracts and quotes were generated each day within the last 3 weeks. (bar) v/
+				The weekly hire value (line) v/
+				Show dates in dd/mm/YYYY format on the X axis; v/
+				Show appropriate Y Axis for each bar/line of the chart. v/
 
-		Bonus:
-			Calculate and show as a line, the moving average of weekly hire.
-		-->
-		<div>
-			<canvas id="barOne"></canvas>
+			Bonus:
+				Calculate and show as a line, the moving average of weekly hire.
+			-->
+			<div id="chartCont">
+				<canvas id="chartDisplay"></canvas>
+			</div>
+			<script>
+				var rentAll = {!! json_encode($rentAll) !!};
+				createCharts(rentAll);
+			</script>
 		</div>
-		<script>
-			var rentAll = {!! json_encode($rentAll) !!};
-			createCharts(rentAll);
-		</script>
 
-		<h2>Part 2</h2>
-		<!-- Part 2: Generate tabular data
-		Required
-			Generate a table under the chart showing the same data in tabular format.
-		Bonus
-			Provide the ability to view the contracts (onrent_lines table) for each date in tabular format via a modal / popup.
-			Once finished, commit your work and push
-		-->
+		<div id="partTwo" class="partCont">
+			<h2>Part 2</h2>
+			<!-- Part 2: Generate tabular data
+			Required
+				Generate a table under the chart showing the same data in tabular format.
+			Bonus
+				Provide the ability to view the contracts (onrent_lines table) for each date in tabular format via a modal / popup.
+				Once finished, commit your work and push
+			-->
 
-		<table id="tableOne" class="table table-striped table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>Contracts</th>
-					<th>Quotes</th>
-					<th>Weekly Hire Value</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($rentAll as $key => $val)
+			<table id="tableOne" class="table table-striped table-bordered table-hover">
+				<thead>
 					<tr>
-						<td>{{ $val->gen_date }}</td>
-						<td>{{ $val->contracts }}</td>
-						<td>{{ $val->quotes }}</td>
-						<td>{{ $val->weekly_value }}</td>
+						<th>Date</th>
+						<th>Contracts</th>
+						<th>Quotes</th>
+						<th>Weekly Hire Value</th>
 					</tr>
-				@endforeach
-			</tbody>
-		</table>
-
+				</thead>
+				<tbody>
+					@foreach($rentAll as $key => $val)
+						<tr>
+							<td>{{ $val->gen_date }}</td>
+							<td>{{ $val->contracts }}</td>
+							<td>{{ $val->quotes }}</td>
+							<td>{{ $val->weekly_value }}</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
 	</body>
 </html>
